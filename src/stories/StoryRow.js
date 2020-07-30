@@ -2,7 +2,8 @@ import React from 'react'
 import Story from "./Story";
 
 function StoryRow(props) {
-    const storyComponents = props.items.map(item => <Story key={item.id} item={item} />);
+    let i = 0;
+    const storyComponents = props.items.map(item => <Story key={i++} item={item} />);
     return (
         <div className="row mb-2">
             {storyComponents}

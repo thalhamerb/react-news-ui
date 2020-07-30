@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './header/Header';
 import Stories from "./stories/Stories";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import World from "./header/World";
-import Local from "./header/Local";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
 
@@ -13,9 +11,8 @@ function App() {
         <Router>
             <Header />
             <Switch>
-                <Route path="/" exact component={World} />
-                <Route path="/world" component={World} />
-                <Route path="/local" component={Local} />
+                <Redirect from='/' exact to='/section/business' />
+                <Route path="/section/:section" render={(props) => <Stories key={props.match.params.section} {...props} />} />
             </Switch>
         </Router>
     </div>
