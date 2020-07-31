@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Header from './header/Header';
 import Stories from "./stories/Stories";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import About from "./header/About";
+import Header from "./header/Header";
 
 function App() {
 
@@ -11,8 +12,9 @@ function App() {
         <Router>
             <Header />
             <Switch>
-                <Redirect from='/' exact to='/section/business' />
+                <Redirect from='/' exact to='/section/general' />
                 <Route path="/section/:section" render={(props) => <Stories key={props.match.params.section} {...props} />} />
+                <Route path="/about" component={About} />
             </Switch>
         </Router>
     </div>

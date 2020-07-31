@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import StoryRow from "./StoryRow";
+import StoryHeader from "./StoryHeader";
 
 function Stories({match}) {
     useEffect(() => {
@@ -30,9 +31,10 @@ function Stories({match}) {
     const processedStories = chunkData(storyData.articles);
     let i = 0;
     return (
-        <div>
+        <>
+            <StoryHeader />
             {processedStories.map(items => <StoryRow key={i++} items={items} />)}
-        </div>
+        </>
     );
 }
 
