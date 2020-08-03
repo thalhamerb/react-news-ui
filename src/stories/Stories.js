@@ -28,6 +28,14 @@ function Stories({match}) {
         setStoryData(data);
     }
 
+    const chunkData = (storyData) => {
+        let i,j,storyGroups = [],chunk = 2;
+        for (i=0,j=storyData.length; i<j; i+=chunk) {
+            storyGroups.push(storyData.slice(i,i+chunk));
+        }
+        return storyGroups;
+    }
+
     const processedStories = chunkData(storyData.articles);
     let i = 0;
     return (
@@ -36,14 +44,6 @@ function Stories({match}) {
             {processedStories.map(items => <StoryRow key={i++} items={items} />)}
         </>
     );
-}
-
-function chunkData(storyData) {
-    let i,j,storyGroups = [],chunk = 2;
-    for (i=0,j=storyData.length; i<j; i+=chunk) {
-        storyGroups.push(storyData.slice(i,i+chunk));
-    }
-    return storyGroups;
 }
 
 export default Stories;

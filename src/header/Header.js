@@ -5,9 +5,14 @@ function Header() {
     return (
         <header className="blog-header py-3">
             <div className="row flex-nowrap justify-content-between align-items-center">
-                <Link className="col-4 pt-1" to={"/about"}>
-                    <p className="text-muted">About</p>
-                </Link>
+                <div>
+                    <Link className="col-2 pt-1" to={"/about"}>
+                        <span className="text-muted">About</span>
+                    </Link>
+                    <Link className="col-2 pt-1" to={"/"}>
+                        <span className="text-muted">Home</span>
+                    </Link>
+                </div>
                 <div className="col-4 text-center">
                     <h3 className="blog-header-logo text-dark">Another News Platform..</h3>
                 </div>
@@ -20,10 +25,11 @@ function Header() {
                     {/*        <path d="M21 21l-5.2-5.2"/>*/}
                     {/*    </svg>*/}
                     {/*</a>*/}
-                    <Link to={"/"}>
-                        <p className="text-muted">Home</p>
+                    <Link to={"/sign-up"}>
+                        <p className="btn btn-sm btn-outline-secondary">Sign up</p>
                     </Link>
                 </div>
+
             </div>
         </header>
     )

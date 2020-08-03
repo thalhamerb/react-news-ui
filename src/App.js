@@ -4,8 +4,11 @@ import Stories from "./stories/Stories";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import About from "./header/About";
 import Header from "./header/Header";
+import Cookies from 'universal-cookie';
 
 function App() {
+    const cookies = new Cookies();
+    cookies.set('SameSite', 'None', { path: '/', secure: true });
 
   return (
     <div className="container">
