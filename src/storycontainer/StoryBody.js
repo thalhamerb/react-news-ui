@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import StoryRow from "./StoryRow";
-import StoryHeader from "./StoryHeader";
 
-function Stories({match}) {
+function StoryBody(props) {
     useEffect(() => {
         fetchItems();
         //below comment to disable alert in console for fetchItems
@@ -22,10 +21,10 @@ function Stories({match}) {
                 'X-Api-Key': 'f7fdee5e51c8452dba29bd5305dd8b94'
             }
         };
-        const fetchResponse = await fetch (`http://newsapi.org/v2/top-headlines?country=us&category=${match.params.section}`,
+        const fetchResponse = await fetch (`http://newsapi.org/v2/top-headlines?country=us&category=${props.section}`,
             settings);
         const data = await fetchResponse.json();
-        console.log("fetched stories for " + match.params.section)
+        console.log("fetched stories for " + props.section)
         setStoryData(data);
     }
 
@@ -41,10 +40,9 @@ function Stories({match}) {
     let i = 0;
     return (
         <>
-            <StoryHeader section={match.params.section}/>
             {processedStories.map(items => <StoryRow key={i++} items={items} />)}
         </>
     );
 }
 
-export default Stories;
+export default StoryBody;

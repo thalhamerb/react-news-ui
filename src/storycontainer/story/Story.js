@@ -5,7 +5,6 @@ const StoryImage = React.lazy(() => import('./StoryImage'));
 
 function Story(props) {
 
-
     return (
         <div className="col-md-6">
             <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">

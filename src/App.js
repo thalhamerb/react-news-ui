@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Stories from "./stories/Stories";
+import StoryContainer from "./storycontainer/StoryContainer";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import About from "./header/About";
 import Header from "./header/Header";
@@ -17,7 +17,7 @@ function App() {
             <Header />
             <Switch>
                 <Redirect from='/' exact to='/section/general' />
-                <Route path="/section/:section" render={(props) => <Stories key={props.match.params.section} {...props} />} />
+                <Route path="/section/:section" render={(props) => <StoryContainer key={props.match.params.section} {...props} />} />
                 <Route path="/about" component={About} />
                 <Route path={"/sign-up"}  component={Signup} />
             </Switch>

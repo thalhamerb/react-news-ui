@@ -41,12 +41,12 @@ function Signup() {
                     <h4 class="form-group text-center">Let's get you info...</h4>
                     <div class="form-group">
                         <label htmlFor="firstName">First Name</label>
-                        <Field class="form-control" name="firstName" type="text"/>
+                        <Field class="form-control" name="firstName" type="text" placeholder="Brendan"/>
                         <ErrorMessage name="firstName"/>
                     </div>
                     <div class="form-group">
                         <label htmlFor="lastName">Last Name</label>
-                        <Field class="form-control" name="lastName" type="text"/>
+                        <Field class="form-control" name="lastName" type="text" placeholder="Smith"/>
                         <ErrorMessage name="lastName"/>
                     </div>
                     <div class="form-group">
@@ -56,12 +56,12 @@ function Signup() {
                     </div>
                     <div class="form-group">
                         <label htmlFor="password">Password</label>
-                        <Field class="form-control" name="password" type="text" placeholder="password"/>
+                        <Field class="form-control" name="password" type="text" placeholder="password123"/>
                         <ErrorMessage name="password"/>
                     </div>
                     <div class="form-group">
                         <label htmlFor="age">Age</label>
-                        <Field class="form-control" name="age" type="text"/>
+                        <Field class="form-control" name="age" type="text" placeholder="34"/>
                         <ErrorMessage name="age"/>
                     </div>
                     <div>

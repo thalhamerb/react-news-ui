@@ -6,11 +6,11 @@ function Header() {
         <header className="blog-header py-3">
             <div className="row flex-nowrap justify-content-between align-items-center">
                 <div className="col-4">
-                    <Link className="col-2 pt-1" to={"/about"}>
-                        <span className="text-muted">About</span>
-                    </Link>
                     <Link className="col-2 pt-1" to={"/"}>
                         <span className="text-muted">Home</span>
+                    </Link>
+                    <Link className="col-2 pt-1" to={"/about"}>
+                        <span className="text-muted">About</span>
                     </Link>
                 </div>
                 <div className="col-4 text-center">

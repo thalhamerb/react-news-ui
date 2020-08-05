@@ -1,5 +1,5 @@
 import React from 'react'
-import Story from "./Story";
+import Story from "./story/Story";
 
 function StoryRow(props) {
     let i = 0;
