@@ -1,28 +1,17 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import StoryHeaderTab from "./StoryHeaderTab";
 
-function StoryHeader() {
+function StoryHeader(props) {
+
     return (
-        <div className="nav-scroller py-1 mb-2">
+        <div className="nav nav-tabs">
             <nav className="nav d-flex ">
-                <Link className="p-2 text-muted" to={"/section/general"}>
-                    <li>General</li>
-                </Link>
-                <Link className="p-2 text-muted" to={"/section/business"}>
-                    <li>Business</li>
-                </Link>
-                <Link className="p-2 text-muted" to={"/section/science"}>
-                    <li>Science</li>
-                </Link>
-                <Link className="p-2 text-muted" to={"/section/technology"}>
-                    <li>Technology</li>
-                </Link>
-                <Link className="p-2 text-muted" to={"/section/health"}>
-                    <li>Health</li>
-                </Link>
-                <Link className="p-2 text-muted" to={"/section/entertainment"}>
-                    <li>Entertainment</li>
-                </Link>
+                <StoryHeaderTab active={props.section} section="general" name="General"/>
+                <StoryHeaderTab active={props.section} section="business" name="Business"/>
+                <StoryHeaderTab active={props.section} section="science" name="Science"/>
+                <StoryHeaderTab active={props.section} section="technology" name="Technology"/>
+                <StoryHeaderTab active={props.section} section="health" name="Health"/>
+                <StoryHeaderTab active={props.section} section="entertainment" name="Entertainment"/>
             </nav>
         </div>
     );

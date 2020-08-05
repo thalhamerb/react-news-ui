@@ -5,11 +5,8 @@ import * as Yup from 'yup';
 function Signup() {
     return (
         <>
-            <h3>
-                Let's get you info...
-            </h3>
             <Formik
-                initialValues={{firstName: '', lastName: '', email: ''}}
+                initialValues={{firstName: '', lastName: '', email: '', password: '', age: null}}
                 validationSchema={Yup.object({
                     firstName: Yup.string()
                         .trim()
@@ -40,40 +37,41 @@ function Signup() {
                     }, 100);
                 }}
             >
-                <Form>
-                    <div>
+                <Form className="col-6">
+                    <h4 class="form-group text-center">Let's get you info...</h4>
+                    <div class="form-group">
                         <label htmlFor="firstName">First Name</label>
-                        <Field name="firstName" type="text"/>
+                        <Field class="form-control" name="firstName" type="text"/>
                         <ErrorMessage name="firstName"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="lastName">Last Name</label>
-                        <Field name="lastName" type="text"/>
+                        <Field class="form-control" name="lastName" type="text"/>
                         <ErrorMessage name="lastName"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="email">Email Address</label>
-                        <Field name="email" type="email"/>
+                        <Field class="form-control" name="email" type="email" placeholder="smithb@gmail.com"/>
                         <ErrorMessage name="email"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="password">Password</label>
-                        <Field name="password" type="text" placeholder="Password"/>
+                        <Field class="form-control" name="password" type="text" placeholder="password"/>
                         <ErrorMessage name="password"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="age">Age</label>
-                        <Field name="age" type="text"/>
+                        <Field class="form-control" name="age" type="text"/>
                         <ErrorMessage name="age"/>
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </Form>
             </Formik>
         </>
     );
-};
+}
 
 
 export default Signup;

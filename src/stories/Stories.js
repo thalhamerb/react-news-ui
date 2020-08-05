@@ -25,6 +25,7 @@ function Stories({match}) {
         const fetchResponse = await fetch (`http://newsapi.org/v2/top-headlines?country=us&category=${match.params.section}`,
             settings);
         const data = await fetchResponse.json();
+        console.log("fetched stories for " + match.params.section)
         setStoryData(data);
     }
 
@@ -40,7 +41,7 @@ function Stories({match}) {
     let i = 0;
     return (
         <>
-            <StoryHeader />
+            <StoryHeader section={match.params.section}/>
             {processedStories.map(items => <StoryRow key={i++} items={items} />)}
         </>
     );
