@@ -15,16 +15,15 @@ function StoryBody(props) {
     });
 
     const fetchItems = async () => {
+        console.log("fetching items: " + props.url);
         const settings = {
             method: 'GET',
             headers: {
                 'X-Api-Key': 'f7fdee5e51c8452dba29bd5305dd8b94'
             }
         };
-        const fetchResponse = await fetch (`http://newsapi.org/v2/top-headlines?country=us&category=${props.section}`,
-            settings);
+        const fetchResponse = await fetch (props.url, settings);
         const data = await fetchResponse.json();
-        console.log("fetched stories for " + props.section)
         setStoryData(data);
     }
 

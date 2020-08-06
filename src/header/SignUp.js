@@ -22,8 +22,9 @@ function Signup() {
                     password: Yup.string()
                         .min(8, 'Must be 8 characters long')
                         .matches('(?=.*[A-Z])', 'Must contain at least one upper case letter')
+                        .matches('.*[0-9].*', 'Must contain at least one number')
                         .required('Required'),
-                    age: Yup.number()
+                    age: Yup.number().nullable(true)
                         .min(10, 'Must be at least 10 years old to join')
                         .max(150, 'You cannot be immortal')
                         .integer('No partial ages')

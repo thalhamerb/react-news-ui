@@ -6,6 +6,7 @@ import About from "./header/About";
 import Header from "./header/Header";
 import Cookies from 'universal-cookie';
 import Signup from "./header/SignUp";
+import SearchContainer from "./search/SearchContainer";
 
 function App() {
     const cookies = new Cookies();
@@ -17,13 +18,17 @@ function App() {
             <Header />
             <Switch>
                 <Redirect from='/' exact to='/section/general' />
-                <Route path="/section/:section" render={(props) => <StoryContainer key={props.match.params.section} {...props} />} />
+                <Route path="/section/:section" render={(props) => <StoryContainer key={props.match.params.section} section={props.match.params.section} />} />
                 <Route path="/about" component={About} />
-                <Route path={"/sign-up"}  component={Signup} />
+                <Route path="/sign-up" component={Signup} />
+                <Route path="/custom-search/:input" render={(props) => <SearchContainer key={props.match.params.input} input={props.match.params.input} />}  />
             </Switch>
         </Router>
     </div>
   );
 }
 
-export default App
+export default App;
+
+
+//todo cash api response

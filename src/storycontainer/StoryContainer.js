@@ -2,11 +2,12 @@ import React from 'react';
 import StoryHeader from "./StoryHeader";
 import StoryBody from "./StoryBody"
 
-function StoryContainer({match}) {
+function StoryContainer(props) {
+
     return (
         <>
-            <StoryHeader section={match.params.section} />
-            <StoryBody section={match.params.section} />
+            <StoryHeader section={props.section} />
+            <StoryBody url={`http://newsapi.org/v2/top-headlines?country=us&category=${props.section}`} />
         </>
     );
 }
