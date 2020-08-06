@@ -2,7 +2,7 @@ import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 
-function Signup() {
+export default function Signup() {
     return (
         <>
             <Formik
@@ -73,6 +73,3 @@ function Signup() {
         </>
     );
 }
-
-
-export default Signup;

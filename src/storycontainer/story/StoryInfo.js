@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StoryInfo(props) {
+export default function StoryInfo(props) {
     const limitText = (text, size) => {
         if (text) {
             return text.length < size ? text : text.slice(0,size-3) + '...';
@@ -21,5 +21,3 @@ function StoryInfo(props) {
         </div>
     );
 }
-
-export default StoryInfo;

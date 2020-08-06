@@ -1,7 +1,7 @@
 import React from 'react';
 import StoryHeaderTab from "./StoryHeaderTab";
 
-function StoryHeader(props) {
+export default function StoryHeader(props) {
 
     return (
         <div className="nav nav-tabs">
@@ -16,5 +16,3 @@ function StoryHeader(props) {
         </div>
     );
 }
-
-export default React.memo(StoryHeader);

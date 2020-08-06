@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-function Search() {
+export default function Search() {
 
     const [searchInput, setSearchInput] = useState("");
+
 
     return (
         <form className="form-inline my-2 my-lg-0">
@@ -20,5 +21,3 @@ function Search() {
         </form>
     );
 }
-
-export default Search;

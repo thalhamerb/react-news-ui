@@ -3,7 +3,7 @@ import StoryInfo from "./StoryInfo";
 
 const StoryImage = React.lazy(() => import('./StoryImage'));
 
-function Story(props) {
+export default function Story(props) {
 
     return (
         <div className="col-md-6">
@@ -17,5 +17,3 @@ function Story(props) {
         </div>
     );
 }
-
-export default Story;

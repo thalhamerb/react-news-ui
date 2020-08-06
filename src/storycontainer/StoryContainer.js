@@ -2,7 +2,7 @@ import React from 'react';
 import StoryHeader from "./StoryHeader";
 import StoryBody from "./StoryBody"
 
-function StoryContainer(props) {
+export default function StoryContainer(props) {
 
     return (
         <>
@@ -11,5 +11,3 @@ function StoryContainer(props) {
         </>
     );
 }
-
-export default StoryContainer;

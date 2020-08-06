@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import StoryContainer from "./storycontainer/StoryContainer";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import About from "./header/About";
@@ -8,7 +7,7 @@ import Cookies from 'universal-cookie';
 import Signup from "./header/SignUp";
 import SearchContainer from "./search/SearchContainer";
 
-function App() {
+export default function App() {
     const cookies = new Cookies();
     cookies.set('SameSite', 'None', { path: '/', secure: true });
 
@@ -27,8 +26,6 @@ function App() {
     </div>
   );
 }
-
-export default App;
 
 
 //todo cash api response

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StoryImage(props) {
+export default function StoryImage(props) {
     return (
         <>
             {props.image ? <div className="col-auto d-none d-lg-block">
@@ -9,5 +9,3 @@ function StoryImage(props) {
         </>
     );
 }
-
-export default StoryImage;

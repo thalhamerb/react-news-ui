@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import StoryRow from "./StoryRow";
 
-function StoryBody(props) {
+export default function StoryBody(props) {
     useEffect(() => {
         fetchItems();
         //below comment to disable alert in console for fetchItems
@@ -43,5 +43,3 @@ function StoryBody(props) {
         </>
     );
 }
-
-export default StoryBody;
