@@ -5,8 +5,14 @@ export default function Search() {
 
     const [searchInput, setSearchInput] = useState("");
 
-    const processChange = (e) => {
+    const processChange = e => {
         setSearchInput(e.target.value);
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
     }
 
     return (
@@ -17,7 +23,8 @@ export default function Search() {
                 name="search"
                 placeholder="Search"
                 value={searchInput}
-                onChange={processChange}/>
+                onChange={processChange}
+                onKeyDown={handleKeyDown} />
             <Link to={"/custom-search/" + searchInput}>
                 <p className="btn btn-sm btn-outline-secondary my-auto">Search</p>
             </Link>

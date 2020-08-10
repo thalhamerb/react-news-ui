@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import Search from "../search/Search";
 
 export default function Header() {
     return (
@@ -13,15 +12,14 @@ export default function Header() {
                     <Link className="col-2 pt-1" to={"/about"}>
                         <span className="text-muted">About</span>
                     </Link>
-                    <Link className="col-2 pt-1" to={"/sign-up"}>
-                        <span className="text-muted">Sign up</span>
-                    </Link>
                 </div>
                 <div className="col-4 text-center">
                     <h3 className="blog-header-logo text-dark">Another News Platform..</h3>
                 </div>
                 <div className="col-4 d-flex justify-content-end align-items-center">
-                    <Search />
+                    <Link className="col-2 pt-1" to={"/sign-up"}>
+                        <span className="text-muted">SignUp</span>
+                    </Link>
                 </div>
             </div>
         </header>

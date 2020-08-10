@@ -1,12 +1,13 @@
 import React from 'react';
-import {ErrorMessage, Field, Form, Formik} from 'formik';
+import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
+import SignUpField from "./SignUpField";
 
 export default function Signup() {
     return (
         <>
             <Formik
-                initialValues={{firstName: '', lastName: '', email: '', password: '', age: null}}
+                initialValues={{firstName: '', lastName: '', email: '', password: '', age: ''}}
                 validationSchema={Yup.object({
                     firstName: Yup.string()
                         .trim()
@@ -39,34 +40,14 @@ export default function Signup() {
                 }}
             >
                 <Form className="col-6">
-                    <h4 class="form-group text-center">Let's get you info...</h4>
-                    <div class="form-group">
-                        <label htmlFor="firstName">First Name</label>
-                        <Field class="form-control" name="firstName" type="text" placeholder="Brendan"/>
-                        <ErrorMessage name="firstName"/>
-                    </div>
-                    <div class="form-group">
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field class="form-control" name="lastName" type="text" placeholder="Smith"/>
-                        <ErrorMessage name="lastName"/>
-                    </div>
-                    <div class="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <Field class="form-control" name="email" type="email" placeholder="smithb@gmail.com"/>
-                        <ErrorMessage name="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label htmlFor="password">Password</label>
-                        <Field class="form-control" name="password" type="text" placeholder="password123"/>
-                        <ErrorMessage name="password"/>
-                    </div>
-                    <div class="form-group">
-                        <label htmlFor="age">Age</label>
-                        <Field class="form-control" name="age" type="text" placeholder="34"/>
-                        <ErrorMessage name="age"/>
-                    </div>
+                    <h4 className="form-group text-center">Let's get you info...</h4>
+                    <SignUpField fieldName="firstName" name="First Name" type="text" placeholder="Brendan" />
+                    <SignUpField fieldName="lastName" name="Last Name" type="text" placeholder="Smith" />
+                    <SignUpField fieldName="email" name="Email" type="email" placeholder="smithb@gmail.com" />
+                    <SignUpField fieldName="password" name="Password" type="text" placeholder="password123" />
+                    <SignUpField fieldName="age" name="Age" type="text" placeholder="34" />
                     <div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </Form>
             </Formik>
