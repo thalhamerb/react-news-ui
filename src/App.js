@@ -12,7 +12,7 @@ export default function App() {
     cookies.set('SameSite', 'None', { path: '/', secure: true });
 
   return (
-    <div className="container">
+    <div className="container-fluid">
         <Router>
             <Header />
             <Switch>
@@ -26,6 +26,3 @@ export default function App() {
     </div>
   );
 }
-
-
-//todo cash api response

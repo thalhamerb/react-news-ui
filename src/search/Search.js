@@ -5,6 +5,9 @@ export default function Search() {
 
     const [searchInput, setSearchInput] = useState("");
 
+    const processChange = (e) => {
+        setSearchInput(e.target.value);
+    }
 
     return (
         <form className="form-inline my-2 my-lg-0">
@@ -14,7 +17,7 @@ export default function Search() {
                 name="search"
                 placeholder="Search"
                 value={searchInput}
-                onChange={e => setSearchInput(e.target.value)}/>
+                onChange={processChange}/>
             <Link to={"/custom-search/" + searchInput}>
                 <p className="btn btn-sm btn-outline-secondary my-auto">Search</p>
             </Link>

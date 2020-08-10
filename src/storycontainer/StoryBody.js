@@ -1,30 +1,41 @@
 import React, {useEffect, useState} from 'react';
 import StoryRow from "./StoryRow";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function StoryBody(props) {
+export default function StoryBody({url}) {
+
+    const [storyData, setStoryData] = useState([]);
+    const [hasMore, setHasMore] = useState(true)
+    const [page, setPage] = useState(1);
+
     useEffect(() => {
         fetchItems();
         //below comment to disable alert in console for fetchItems
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const [storyData, setStoryData] = useState({
-        status: "",
-        totalResults: 0,
-        articles: []
-    });
-
     const fetchItems = async () => {
-        console.log("fetching items: " + props.url);
+        if (storyData.length >= 60) {
+            setHasMore(false);
+            return;
+        }
+
+        setPage(oldPage => oldPage + 1);
         const settings = {
             method: 'GET',
             headers: {
                 'X-Api-Key': 'f7fdee5e51c8452dba29bd5305dd8b94'
             }
         };
-        const fetchResponse = await fetch (props.url, settings);
+        console.log("fetching items from url: " + url + "&page=" + page);
+        const fetchResponse = await fetch (url + "&page=" + page, settings);
         const data = await fetchResponse.json();
-        setStoryData(data);
+
+        if (data.length === 0) {
+            setHasMore(false);
+        } else {
+            setStoryData(storyData => storyData.concat(data.articles));
+        }
     }
 
     const chunkData = (storyData) => {
@@ -35,11 +46,14 @@ export default function StoryBody(props) {
         return storyGroups;
     }
 
-    const processedStories = chunkData(storyData.articles);
     let i = 0;
     return (
-        <>
-            {processedStories.map(items => <StoryRow key={i++} items={items} />)}
-        </>
+        <InfiniteScroll
+            dataLength={storyData.length}
+            next={fetchItems}
+            hasMore={hasMore}
+        >
+            {chunkData(storyData).map(items => <StoryRow key={i++} items={items} />)}
+        </InfiniteScroll>
     );
 }
