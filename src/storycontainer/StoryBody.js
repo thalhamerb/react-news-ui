@@ -27,7 +27,7 @@ export default function StoryBody({url}) {
                 'X-Api-Key': 'f7fdee5e51c8452dba29bd5305dd8b94'
             }
         };
-        console.log("fetching items from url: " + url + "&page=" + page);
+        // console.log("fetching items from url: " + url + "&page=" + page);
         const fetchResponse = await fetch (url + "&page=" + page, settings);
         const data = await fetchResponse.json();
 
@@ -46,14 +46,13 @@ export default function StoryBody({url}) {
         return storyGroups;
     }
 
-    let i = 0;
     return (
         <InfiniteScroll
             dataLength={storyData.length}
             next={fetchItems}
             hasMore={hasMore}
         >
-            {chunkData(storyData).map(items => <StoryRow key={i++} items={items} />)}
+            {chunkData(storyData).map((items, idx) => <StoryRow key={idx} items={items} />)}
         </InfiniteScroll>
     );
 }
