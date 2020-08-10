@@ -13,7 +13,7 @@ export default function StoryInfo({item}) {
         <div className="col p-4 d-flex flex-column position-static">
             <h5>{removeMagFromTitle(item.title)}</h5>
             <div className="text-muted">{item.source.name} &middot; {formatDate(item.publishedAt)}</div>
-            <p>{item.description}</p>
+            <p className="mt-1">{item.description}</p>
             <a href={item.url} target="_blank" rel="noopener noreferrer" className="stretched-link">Continue reading</a>
         </div>
     );

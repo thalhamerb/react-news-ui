@@ -6,7 +6,7 @@ export default function StoryHeader({activeSection}) {
 
     return (
         <div className="row flex-nowrap justify-content-between align-items-center">
-            <div className="nav nav-tabs col-8">
+            <div className="nav nav-tabs col-6">
                 <nav className="nav d-flex ">
                     <StoryHeaderTab activeSection={activeSection} section="general" name="General"/>
                     <StoryHeaderTab activeSection={activeSection} section="business" name="Business"/>
@@ -16,7 +16,7 @@ export default function StoryHeader({activeSection}) {
                     <StoryHeaderTab activeSection={activeSection} section="entertainment" name="Entertainment"/>
                 </nav>
             </div>
-            <div className="col-4 d-flex justify-content-end align-items-center">
+            <div className="col-6 d-flex justify-content-end align-items-center">
                 <Search />
             </div>
         </div>

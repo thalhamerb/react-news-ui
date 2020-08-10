@@ -28,7 +28,7 @@ export default function StoryBody({url}) {
             }
         };
         // console.log("fetching items from url: " + url + "&page=" + page);
-        const fetchResponse = await fetch (url + "&page=" + page, settings);
+        const fetchResponse = await fetch(url + "&page=" + page, settings);
         const data = await fetchResponse.json();
 
         if (data.length === 0) {
@@ -39,20 +39,22 @@ export default function StoryBody({url}) {
     }
 
     const chunkData = (storyData) => {
-        let i,j,storyGroups = [],chunk = 2;
-        for (i=0,j=storyData.length; i<j; i+=chunk) {
-            storyGroups.push(storyData.slice(i,i+chunk));
+        let i, j, storyGroups = [], chunk = 2;
+        for (i = 0, j = storyData.length; i < j; i += chunk) {
+            storyGroups.push(storyData.slice(i, i + chunk));
         }
         return storyGroups;
     }
 
     return (
-        <InfiniteScroll
-            dataLength={storyData.length}
-            next={fetchItems}
-            hasMore={hasMore}
-        >
-            {chunkData(storyData).map((items, idx) => <StoryRow key={idx} items={items} />)}
-        </InfiniteScroll>
+        <div className="mt-2">
+            <InfiniteScroll
+                dataLength={storyData.length}
+                next={fetchItems}
+                hasMore={hasMore}
+            >
+                {chunkData(storyData).map((items, idx) => <StoryRow key={idx} items={items}/>)}
+            </InfiniteScroll>
+        </div>
     );
 }
