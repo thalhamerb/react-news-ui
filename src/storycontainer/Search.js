@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import {CUSTOM_SEARCH_PREFIX} from "../routes";
 
 export default function Search() {
 
@@ -25,7 +26,7 @@ export default function Search() {
                 value={searchInput}
                 onChange={processChange}
                 onKeyDown={handleKeyDown} />
-            <Link to={"/custom-search/" + searchInput}>
+            <Link to={CUSTOM_SEARCH_PREFIX + searchInput}>
                 <p className="btn btn-sm btn-outline-secondary my-auto">Search</p>
             </Link>
         </form>
