@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import {CUSTOM_SEARCH_PREFIX} from "../routes";
+import * as routes from "../routes";
 
-export default function Search() {
+export default function Search(props) {
 
     const [searchInput, setSearchInput] = useState("");
 
@@ -16,19 +17,27 @@ export default function Search() {
         }
     }
 
+    const handleSearch = () => {
+        props.setActiveSection(null);
+    }
+
     return (
-        <form className="form-inline my-2 my-lg-0">
-            <input
-                className="form-control mr-sm-2"
-                type="text"
-                name="search"
-                placeholder="Search"
-                value={searchInput}
-                onChange={processChange}
-                onKeyDown={handleKeyDown} />
-            <Link to={CUSTOM_SEARCH_PREFIX + searchInput}>
-                <p className="btn btn-sm btn-outline-secondary my-auto">Search</p>
-            </Link>
-        </form>
+        <>
+            <form className="form-inline my-2 my-lg-0">
+                <input
+                    className="form-control mr-sm-2"
+                    type="text"
+                    name="search"
+                    placeholder="Search"
+                    value={searchInput}
+                    onChange={processChange}
+                    onKeyDown={handleKeyDown}/>
+
+                <Link className="btn btn-sm btn-outline-secondary my-auto"
+                      to={routes.STORIES + CUSTOM_SEARCH_PREFIX + '/' + searchInput}
+                      onClick={() => handleSearch()}>Search
+                </Link>
+            </form>
+        </>
     );
 }
