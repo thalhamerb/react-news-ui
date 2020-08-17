@@ -13,9 +13,9 @@ export default function App() {
         <div className="container-fluid">
             <Router>
                 <Switch>
-                    <Header/>
                     <Redirect from={routes.HOME} exact to={routes.STORIES + routes.STORIES_HOME}/>
                     <Redirect from={routes.STORIES} exact to={routes.STORIES + routes.STORIES_HOME}/>
+                    <Header/>
                 </Switch>
             </Router>
         </div>
