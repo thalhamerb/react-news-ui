@@ -11,7 +11,7 @@ export default function Header() {
             <header className="blog-header py-3">
                 <div className="row flex-nowrap justify-content-between align-items-center">
                     <div className="col-4">
-                        <Link className="col-2 pt-1" to={routes.STORIES + routes.STORIES_GENERAL}>
+                        <Link className="col-2 pt-1" to={routes.STORIES + routes.STORIES_HOME}>
                             <span className="text-muted">Home</span>
                         </Link>
                         <Link className="col-2 pt-1" to={routes.ABOUT}>
@@ -29,7 +29,7 @@ export default function Header() {
                 </div>
             </header>
 
-            <Route path={routes.STORIES} component={StoryContainer}/>
+            <Route path={routes.STORIES + "/:section"} component={StoryContainer}/>
             <Route path={routes.ABOUT} component={About}/>
             <Route path={routes.SIGN_UP} component={Signup}/>
         </>

@@ -1,14 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import StoryBody from "./StoryBody"
-import {STORIES_GENERAL} from "../routes";
 import {Route} from "react-router-dom";
 import * as routes from "../routes";
 import StoryHeaderTab from "./StoryHeaderTab";
 import Search from "./Search";
 
-export default function StoryContainer() {
+export default function StoryContainer(props) {
 
-    const [activeSection, setActiveSection] = useState(STORIES_GENERAL);
+    useEffect(() => {
+        setActiveSection(props.match.params.section)
+    }, [props])
+
+    const [activeSection, setActiveSection] = useState('');
 
     return (
         <>
@@ -16,17 +19,17 @@ export default function StoryContainer() {
                 <div className="nav nav-tabs col-6">
                     <nav className="nav d-flex ">
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_GENERAL} name="General"/>
+                                        section="general" name="General"/>
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_BUSINESS} name="Business"/>
+                                        section="business" name="Business"/>
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_SCIENCE} name="Science"/>
+                                        section="science" name="Science"/>
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_TECH} name="Technology"/>
+                                        section="technology" name="Technology"/>
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_HEALTH} name="Health"/>
+                                        section="health" name="Health"/>
                         <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section={routes.STORIES_ENTERTAIN} name="Entertainment"/>
+                                        section="entertainment" name="Entertainment"/>
                     </nav>
                 </div>
                 <div className="col-6 d-flex justify-content-end align-items-center">
