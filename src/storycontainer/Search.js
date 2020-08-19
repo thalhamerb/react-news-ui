@@ -17,10 +17,6 @@ export default function Search(props) {
         }
     }
 
-    const handleSearch = () => {
-        props.setActiveSection(null);
-    }
-
     return (
         <>
             <form className="form-inline my-2 my-lg-0">
@@ -34,8 +30,8 @@ export default function Search(props) {
                     onKeyDown={handleKeyDown}/>
 
                 <Link className="btn btn-sm btn-outline-secondary my-auto"
-                      to={routes.STORIES + CUSTOM_SEARCH_PREFIX + '/' + searchInput}
-                      onClick={() => handleSearch()}>Search
+                      to={routes.STORIES + CUSTOM_SEARCH_PREFIX + '/' + searchInput}>
+                    Search
                 </Link>
             </form>
         </>

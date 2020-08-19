@@ -1,13 +1,16 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {STORIES} from "../routes";
 
 export default function StoryHeaderTab(props) {
     return (
-        <li className={'nav-link' + (props.section === props.activeSection ? " active" : "")}>
-            <Link className="p-2 text-muted"
-                  to={STORIES + '/' + props.section}
-                  onClick={() => props.setActiveSection(props.section)}>{props.name}</Link>
+        <li className='nav-item'>
+            <NavLink to={STORIES + '/' + props.section}
+                     className="nav-link text-muted"
+                     activeClassName="active"
+                     replace>
+                {props.name}
+            </NavLink>
         </li>
     );
 

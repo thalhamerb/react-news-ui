@@ -5,35 +5,20 @@ import * as routes from "../routes";
 import StoryHeaderTab from "./StoryHeaderTab";
 import Search from "./Search";
 
-export default function StoryContainer(props) {
-
-    useEffect(() => {
-        setActiveSection(props.match.params.section)
-    }, [props])
-
-    const [activeSection, setActiveSection] = useState('');
-
+export default function StoryContainer() {
     return (
         <>
             <div className="row flex-nowrap justify-content-between align-items-center">
-                <div className="nav nav-tabs col-6">
-                    <nav className="nav d-flex ">
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="general" name="General"/>
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="business" name="Business"/>
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="science" name="Science"/>
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="technology" name="Technology"/>
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="health" name="Health"/>
-                        <StoryHeaderTab activeSection={activeSection} setActiveSection={setActiveSection}
-                                        section="entertainment" name="Entertainment"/>
-                    </nav>
-                </div>
+                <ul className="nav nav-tabs col-6">
+                        <StoryHeaderTab section="general" name="General"/>
+                        <StoryHeaderTab section="business" name="Business"/>
+                        <StoryHeaderTab section="science" name="Science"/>
+                        <StoryHeaderTab section="technology" name="Technology"/>
+                        <StoryHeaderTab section="health" name="Health"/>
+                        <StoryHeaderTab section="entertainment" name="Entertainment"/>
+                </ul>
                 <div className="col-6 d-flex justify-content-end align-items-center">
-                    <Search setActiveSection={setActiveSection}/>
+                    <Search/>
                 </div>
             </div>
 

@@ -11,27 +11,33 @@ export default function Header() {
             <header className="blog-header py-3">
                 <div className="row flex-nowrap justify-content-between align-items-center">
                     <div className="col-4">
-                        <Link className="col-2 pt-1" to={routes.STORIES + routes.STORIES_HOME}>
-                            <span className="text-muted">Home</span>
+                        <Link className="col-2 pt-1 text-muted" to={routes.STORIES + routes.STORIES_HOME}>
+                            Home
                         </Link>
-                        <Link className="col-2 pt-1" to={routes.ABOUT}>
-                            <span className="text-muted">About</span>
+                        <Link className="col-2 pt-1 text-muted" to={routes.ABOUT}>
+                            About
                         </Link>
                     </div>
                     <div className="col-4 text-center">
                         <h3 className="blog-header-logo text-dark">Another News Platform..</h3>
                     </div>
                     <div className="col-4 d-flex justify-content-end align-items-center">
-                        <Link className="col-2 pt-1" to={routes.SIGN_UP}>
-                            <span className="text-muted">SignUp</span>
+                        <Link className="col-2 pt-1 text-muted" to={routes.SIGN_UP}>
+                            SignUp
                         </Link>
                     </div>
                 </div>
             </header>
 
-            <Route path={routes.STORIES + "/:section"} component={StoryContainer}/>
-            <Route path={routes.ABOUT} component={About}/>
-            <Route path={routes.SIGN_UP} component={Signup}/>
+            <Route path={routes.STORIES + "/:section"}>
+                <StoryContainer />
+            </Route>
+            <Route path={routes.ABOUT}>
+                <About />
+            </Route>
+            <Route path={routes.SIGN_UP}>
+                <Signup/>
+            </Route>
         </>
     )
 }
