@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {Link, Route} from "react-router-dom";
 import * as routes from "../routes";
-import About from "./About";
-import Signup from "./SignUp";
 import StoryContainer from "../storycontainer/StoryContainer";
+
+const About = React.lazy(() => {
+    return import('./About');
+});
+
+const Signup = React.lazy(() => {
+    return import('./SignUp');
+})
 
 export default function Header() {
     return (
@@ -30,14 +36,17 @@ export default function Header() {
             </header>
 
             <Route path={routes.STORIES + "/:section"}>
-                <StoryContainer />
+                <StoryContainer/>
             </Route>
-            <Route path={routes.ABOUT}>
-                <About />
-            </Route>
-            <Route path={routes.SIGN_UP}>
-                <Signup/>
-            </Route>
+            
+            <Suspense fallback={<div>Loading...</div>}>
+                <Route path={routes.ABOUT}>
+                    <About/>
+                </Route>
+                <Route path={routes.SIGN_UP}>
+                    <Signup/>
+                </Route>
+            </Suspense>
         </>
     )
 }

@@ -2,19 +2,13 @@ import React, {useEffect, useState} from 'react';
 import StoryRow from "./StoryRow";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function StoryBody({url}) {
+export default function StoryBody(props) {
 
     const [storyData, setStoryData] = useState([]);
     const [hasMore, setHasMore] = useState(true)
     const [page, setPage] = useState(1);
 
-    useEffect(() => {
-        fetchItems();
-        //below comment to disable alert in console for fetchItems
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    const fetchItems = async () => {
+    async function fetchItems() {
         if (storyData.length >= 60) {
             setHasMore(false);
             return;
@@ -27,9 +21,9 @@ export default function StoryBody({url}) {
                 'X-Api-Key': 'f7fdee5e51c8452dba29bd5305dd8b94'
             }
         };
-        // console.log("fetching items from url: " + url + "&page=" + page);
-        const fetchResponse = await fetch(url + "&page=" + page, settings);
-        const data = await fetchResponse.json();
+        // console.log("fetching items from url: " + props.url + "&page=" + page);
+        const response = await fetch(props.url + "&page=" + page, settings);
+        const data = await response.json();
 
         if (data.length === 0) {
             setHasMore(false);
@@ -37,6 +31,11 @@ export default function StoryBody({url}) {
             setStoryData(storyData => storyData.concat(data.articles));
         }
     }
+
+    useEffect(() => {
+        fetchItems();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.url])
 
     const chunkData = (storyData) => {
         let i, j, storyGroups = [], chunk = 2;
