@@ -27,7 +27,7 @@ test('loads and displays story', async () => {
     expect(getByText('Continue reading')).toHaveAttribute('href', 'http://ny-url.nytimes.com')
 
     expect(getByText("loading...")).toBeInTheDocument();
-    const imageElement = await waitForElement(() => queryByAltText("article image"))
+    const imageElement = await waitForElement(() => queryByAltText("article"))
     expect(imageElement).toBeInTheDocument()
 })
 
