@@ -10,9 +10,8 @@ export default function Story({item}) {
             <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <StoryInfo item={item} />
                 <Suspense fallback={<div>loading...</div>}>
-                    <StoryImage image={item.urlToImage}/>
+                    <StoryImage imageUrl={item.urlToImage}/>
                 </Suspense>
-
             </div>
         </div>
     );
