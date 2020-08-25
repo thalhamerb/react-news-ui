@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import SignUpField from "./SignUpField";
 
 export default function Signup() {
+
+    const [values, setValues] = useState({})
+
     return (
         <Formik
             initialValues={{firstName: '', lastName: '', email: '', password: '', age: ''}}
@@ -31,7 +34,7 @@ export default function Signup() {
             })}
             onSubmit={(values, {setSubmitting}) => {
                 const timeOut = setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
+                    setValues(values)
                     setSubmitting(false);
 
                     clearTimeout(timeOut)
@@ -46,6 +49,7 @@ export default function Signup() {
                 <SignUpField fieldName="password" name="Password" type="text" placeholder="password123"/>
                 <SignUpField fieldName="age" name="Age" type="text" placeholder="34"/>
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <div>{JSON.stringify(values)}</div>
             </Form>
         </Formik>
     );
