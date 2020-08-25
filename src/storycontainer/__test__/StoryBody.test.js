@@ -55,9 +55,8 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test('get stories', async () => {
-    const {getByText} = render(<StoryBody key="general" url="/getStories?country=us&page=general"/>)
-
-    const firstTitleElement = await waitForElement(() => getByText("Title1"))
+    const {getByText, findByText} = render(<StoryBody key="general" url="/getStories?country=us&page=general"/>);
+    const firstTitleElement = await findByText("Title1");
 
     expect(firstTitleElement).toBeInTheDocument();
     expect(getByText("Title2")).toBeInTheDocument();
@@ -67,13 +66,12 @@ test('get stories', async () => {
 test('handles server error', async () => {
     server.use(
         rest.get(url, (req, res, ctx) => {
-            return res(ctx.status(500))
+            return res(ctx.status(500));
         })
     )
 
-    const {getByText, queryByText} = render(<StoryBody key="general" url="/getStories?country=us&page=general"/>)
-
-    await waitForElement(() => getByText("Unable to load stories..."))
+    const {getByText, findByText, queryByText} = render(<StoryBody key="general" url="/getStories?country=us&page=general"/>);
+    await findByText("Unable to load stories...");
 
     expect(getByText("Unable to load stories...")).toBeInTheDocument();
     expect(queryByText("Title1")).not.toBeInTheDocument();

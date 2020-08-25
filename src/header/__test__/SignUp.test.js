@@ -5,7 +5,6 @@ import SignUp from "../SignUp";
 
 test('successful submit', async () => {
     const {getByLabelText, findByText, getByText} = render(<SignUp/>);
-
     await applyValues("BRIAN", "THALHAMER", "thalhamerb@gmail.com", "Password123", "34", getByLabelText);
     await clickSubmit(getByText);
 
@@ -14,8 +13,7 @@ test('successful submit', async () => {
 
 test('password is invalid - first condition', async () => {
     const {getByLabelText, findByText, getByText} = render(<SignUp/>);
-
-    await applyValues("BRIAN", "THALHAMER", "thalhamerb@gmail.com", "sssssssss", "34", getByLabelText);
+    await applyValues("BRIAN", "THALHAMER", "thalhamerb@gmail.com", "sssssssss", null, getByLabelText);
     await clickSubmit(getByText);
 
     expect(await findByText('Must contain at least one upper case letter')).toBeInTheDocument();
@@ -23,9 +21,9 @@ test('password is invalid - first condition', async () => {
 
 test('password is invalid - second condition', async () => {
     const {getByLabelText, findByText, getByText} = render(<SignUp/>);
-    await applyValues("BRIAN", "THALHAMER", "thalhamerb@gmail.com", "Password", "34", getByLabelText);
-
+    await applyValues("BRIAN", "THALHAMER", "thalhamerb@gmail.com", "Password", null, getByLabelText);
     await clickSubmit(getByText);
+
     expect(await findByText('Must contain at least one number')).toBeInTheDocument();
 })
 

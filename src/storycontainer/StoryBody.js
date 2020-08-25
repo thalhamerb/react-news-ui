@@ -30,7 +30,7 @@ export default function StoryBody(props) {
                 }
             })
             .catch((error) => {
-                console.log("failed request");
+                setHasMore(false);
             })
     }
 
@@ -49,7 +49,7 @@ export default function StoryBody(props) {
 
     return (
         <div className="mt-2">
-            {storyData.length === 0 ? "Unable to load stories..." :
+            {storyData.length === 0 && hasMore === false ? "Unable to load stories..." :
                 <InfiniteScroll
                     dataLength={storyData.length}
                     next={fetchItems}
