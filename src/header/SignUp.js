@@ -1,11 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { useHistory } from "react-router-dom";
 import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import SignUpField from "./SignUpField";
+import {userState} from "../store"
+import {useSetRecoilState} from "recoil";
+import {STORIES} from "../routes"
 
 export default function Signup() {
 
-    const [values, setValues] = useState({})
+    const setUser = useSetRecoilState(userState);
+    const history = useHistory();
+
+    const routeChange = () => {
+        history.push(STORIES);
+    }
 
     return (
         <Formik
@@ -34,10 +43,10 @@ export default function Signup() {
             })}
             onSubmit={(values, {setSubmitting}) => {
                 const timeOut = setTimeout(() => {
-                    setValues(values)
+                    setUser(values);
                     setSubmitting(false);
-
-                    clearTimeout(timeOut)
+                    clearTimeout(timeOut);
+                    routeChange();
                 }, 100);
             }}
         >
@@ -49,7 +58,6 @@ export default function Signup() {
                 <SignUpField fieldName="password" name="Password" type="text" placeholder="password123"/>
                 <SignUpField fieldName="age" name="Age" type="text" placeholder="34"/>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <div>{JSON.stringify(values)}</div>
             </Form>
         </Formik>
     );

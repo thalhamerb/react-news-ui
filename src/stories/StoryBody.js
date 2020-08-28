@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import StoryRow from "./StoryRow";
 import InfiniteScroll from "react-infinite-scroll-component";
+import StoryBodyRenderer from "./StoryBodyRenderer";
 
 export default function StoryBody(props) {
 
@@ -39,14 +39,6 @@ export default function StoryBody(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.url])
 
-    const chunkData = (storyData) => {
-        let i, j, storyGroups = [], chunk = 2;
-        for (i = 0, j = storyData.length; i < j; i += chunk) {
-            storyGroups.push(storyData.slice(i, i + chunk));
-        }
-        return storyGroups;
-    }
-
     return (
         <div className="mt-2">
             {storyData.length === 0 && hasMore === false ? "Unable to load stories..." :
@@ -55,7 +47,7 @@ export default function StoryBody(props) {
                     next={fetchItems}
                     hasMore={hasMore}
                 >
-                    {chunkData(storyData).map((items, idx) => <StoryRow key={idx} items={items}/>)}
+                    <StoryBodyRenderer storyData={storyData}/>
                 </InfiniteScroll>}
         </div>
     );
