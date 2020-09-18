@@ -23,7 +23,7 @@ export default function StoryInfo({story, favorite, addRemoveStoryFromFavorites}
             <p className="mt-1">{story.description}</p>
             <div>
                 <a href={story.url} target="_blank" rel="noopener noreferrer">Continue reading</a>
-                <a className={faIcon + " pull-right"} href="javascript:void(0);" onClick={() => addRemoveStoryFromFavorites()}> </a>
+                <button className={faIcon + " pull-right btn btn-link text-muted shadow-none"} onClick={() => addRemoveStoryFromFavorites()}> </button>
             </div>
         </div>
     );

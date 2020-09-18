@@ -1,13 +1,13 @@
 import React from 'react';
 import {BrowserRouter as Router, Redirect, Switch} from "react-router-dom";
 import Header from "./header/Header";
-import Cookies from 'universal-cookie';
+import { useCookies } from "react-cookie";
 import * as routes from "./routes";
 
 export default function App() {
-    const cookies = new Cookies();  //todo this cookie set isn't working
-    cookies.set('SameSite', 'None', {path: routes.HOME, secure: true});
-    // console.log(cookies.get('SameSite'));
+    const [cookies, setCookie] = useCookies(['SameSite', 'name', 'test']);
+    setCookie('SameSite', 'None', {path:'/'})
+    // console.log(cookies.SameSite);
 
     return (
         <div className="container-fluid">

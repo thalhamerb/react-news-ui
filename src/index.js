@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import {RecoilRoot} from "recoil";
 import ReactTooltip from 'react-tooltip';
+import {CookiesProvider} from "react-cookie";
 
 ReactDOM.render(
     <RecoilRoot>
-        <App />
-        <ReactTooltip type="light"/>
+        <CookiesProvider>
+            <App/>
+            <ReactTooltip type="light"/>
+        </CookiesProvider>
     </RecoilRoot>,
     document.getElementById('root'))

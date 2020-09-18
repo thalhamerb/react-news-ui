@@ -18,13 +18,13 @@ export default function UserDropdown() {
     return (
         user != null ?
             <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button"
+                <button className="btn btn-link text-muted shadow-none dropdown-toggle" type="button"
                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                     Hi, {user.firstName}
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="javascript:void(0);" onClick={signOut}>Sign out</a>
+                    <button className="btn btn-link text-muted shadow-none dropdown-item" onClick={signOut}>Sign out</button>
                 </div>
             </div>
             :
