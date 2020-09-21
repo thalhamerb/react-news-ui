@@ -1,9 +1,12 @@
 import React from 'react';
 import {useRecoilState} from "recoil";
 import {userState} from "../store";
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import * as routes from "../routes";
 import {STORIES} from "../routes";
+import HeaderLink from "../common/header/HeaderLink";
+import InlineDropdown from "../common/InlineDropdown";
+import InlineDropdownButton from "../common/InlineDropdownButton";
 
 export default function UserDropdown() {
 
@@ -17,20 +20,11 @@ export default function UserDropdown() {
 
     return (
         user != null ?
-            <div className="dropdown">
-                <button className="btn btn-link text-muted shadow-none dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                    Hi, {user.firstName}
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button className="btn btn-link text-muted shadow-none dropdown-item" onClick={signOut}>Sign out</button>
-                </div>
-            </div>
+            <InlineDropdown value={`Hi, ${user.firstName}`}>
+                <InlineDropdownButton clickFunction={signOut} value="Sign out"/>
+            </InlineDropdown>
             :
-            <Link className="col-2 text-muted" to={routes.SIGN_UP}>
-                SignUp
-            </Link>
+            <HeaderLink route={routes.SIGN_UP} value="SignUp"/>
     );
 }
 

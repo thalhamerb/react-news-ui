@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import InfiniteScroll from "react-infinite-scroll-component";
-import StoryBodyRenderer from "./StoryBodyRenderer";
+import CardList from "../common/card/CardList";
+import StoryCard from "./StoryCard";
 
 export default function StoryBody(props) {
 
-    const [storyData, setStoryData] = useState([]);
+    const [cardArray, setCardArray] = useState([]);
     const [hasMore, setHasMore] = useState(true)
     const [page, setPage] = useState(1);
 
     async function fetchItems() {
-        if (storyData.length >= 60) {
+        if (cardArray.length >= 60) {
             setHasMore(false);
             return;
         }
@@ -26,12 +27,16 @@ export default function StoryBody(props) {
                 if (stories.length === 0) {
                     setHasMore(false);
                 } else {
-                    setStoryData(storyData => storyData.concat(stories.articles));
+                    setCardArray(cardArray => cardArray.concat(mapStoriesToCards(stories.articles)));
                 }
             })
             .catch((error) => {
                 setHasMore(false);
             })
+    }
+
+    function mapStoriesToCards(stories) {
+        return stories.map(story => <StoryCard key={story.url} story={story}/>);
     }
 
     useEffect(() => {
@@ -41,13 +46,11 @@ export default function StoryBody(props) {
 
     return (
         <div className="mt-2">
-            {storyData.length === 0 && hasMore === false ? "Unable to load stories..." :
-                <InfiniteScroll
-                    dataLength={storyData.length}
-                    next={fetchItems}
-                    hasMore={hasMore}
-                >
-                    <StoryBodyRenderer storyData={storyData}/>
+            {cardArray.length === 0 && hasMore === false ?
+                "Unable to load stories..."
+                :
+                <InfiniteScroll dataLength={cardArray.length} next={fetchItems} hasMore={hasMore}>
+                    <CardList cardArray={cardArray}/>
                 </InfiniteScroll>}
         </div>
     );

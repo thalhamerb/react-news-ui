@@ -1,15 +1,14 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {STORIES} from "../routes";
 
-export default function StoryHeaderTab(props) {
+export default function NavTab(props) {
     return (
         <li className='nav-item'>
-            <NavLink to={STORIES + '/' + props.section}
+            <NavLink to={props.to}
                      className="nav-link text-muted"
                      activeClassName="active"
                      replace>
-                {props.name}
+                {props.value}
             </NavLink>
         </li>
     );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Story from "../Story"
+import StoryCard from "../StoryCard";
+
 
 let baseTestItem = null
 
@@ -19,7 +20,7 @@ beforeEach(() => {
 })
 
 test('loads and displays story', async () => {
-    const {getByText, findByAltText} = render(<Story item={baseTestItem} />)
+    const {getByText, findByAltText} = render(<StoryCard item={baseTestItem} />)
 
     expect(getByText('Title')).toBeInTheDocument();
     expect(getByText(`NY Times · 2020-08-14`)).toBeInTheDocument();
@@ -34,7 +35,7 @@ test('loads and displays story', async () => {
 test('no published date', () => {
     baseTestItem.publishedAt = null;
 
-    const {getByText} = render(<Story item={baseTestItem} />);
+    const {getByText} = render(<StoryCard item={baseTestItem} />);
 
     expect(getByText(`NY Times`)).toBeInTheDocument();
 })
@@ -42,7 +43,7 @@ test('no published date', () => {
 test('no story image', () => {
     baseTestItem.urlToImage = null;
 
-    const {queryByRole} = render(<Story item={baseTestItem} />);
+    const {queryByRole} = render(<StoryCard item={baseTestItem} />);
 
     expect(queryByRole("img")).toBeNull();
 })

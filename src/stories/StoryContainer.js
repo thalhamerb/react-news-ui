@@ -2,23 +2,25 @@ import React from 'react';
 import StoryBody from "./StoryBody"
 import {Route} from "react-router-dom";
 import * as routes from "../routes";
-import StoryHeaderTab from "./StoryHeaderTab";
-import Search from "./Search";
+import NavTab from "../common/nav/NavTab";
+import Search from "../common/Search";
+import NavBar from "../common/nav/NavBar";
+import {STORIES} from "../routes";
 
 export default function StoryContainer() {
     return (
         <>
             <div className="row flex-nowrap justify-content-between align-items-center">
-                <ul className="nav nav-tabs col-6">
-                        <StoryHeaderTab section="general" name="General"/>
-                        <StoryHeaderTab section="business" name="Business"/>
-                        <StoryHeaderTab section="science" name="Science"/>
-                        <StoryHeaderTab section="technology" name="Technology"/>
-                        <StoryHeaderTab section="health" name="Health"/>
-                        <StoryHeaderTab section="entertainment" name="Entertainment"/>
-                </ul>
+                <NavBar>
+                    <NavTab to={STORIES + "/general"} value="General"/>
+                    <NavTab to={STORIES + "/business"} value="Business"/>
+                    <NavTab to={STORIES + "/science"} value="Science"/>
+                    <NavTab to={STORIES + "/technology"} value="Technology"/>
+                    <NavTab to={STORIES + "/health"} value="Health"/>
+                    <NavTab to={STORIES + "/entertainment"} value="Entertainment"/>
+                </NavBar>
                 <div className="col-6 d-flex justify-content-end align-items-center">
-                    <Search/>
+                    <Search linkUrl={routes.STORIES + routes.CUSTOM_SEARCH_PREFIX}/>
                 </div>
             </div>
 

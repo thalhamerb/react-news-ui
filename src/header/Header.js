@@ -1,9 +1,12 @@
 import React, {Suspense} from 'react';
-import {Link, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import * as routes from "../routes";
 import StoryContainer from "../stories/StoryContainer";
 import UserDropdown from "./UserDropdown";
-import Favorites from "../stories/favorites/Favorites";
+import FavoriteStories from "../stories/FavoriteStories";
+import HeaderLink from "../common/header/HeaderLink";
+import HeaderTitle from "../common/header/HeaderTitle";
+import FaIconLink from "../common/FaIconLink";
 
 const About = React.lazy(() => {
     return import('./About');
@@ -14,24 +17,19 @@ const Signup = React.lazy(() => {
 })
 
 export default function Header() {
-
     return (
         <>
             <header className="blog-header py-3">
                 <div className="row flex-nowrap justify-content-between align-items-center">
                     <div className="col-4">
-                        <Link className="col-2 text-muted" to={routes.STORIES + routes.STORIES_HOME}>
-                            Home
-                        </Link>
-                        <Link className="col-2 text-muted" to={routes.ABOUT}>
-                            About
-                        </Link>
+                        <HeaderLink route={routes.STORIES + routes.STORIES_HOME} value="Home"/>
+                        <HeaderLink route={routes.ABOUT} value="About"/>
                     </div>
                     <div className="col-4 text-center">
-                        <h3 className="blog-header-logo text-dark">Another News Platform..</h3>
+                        <HeaderTitle value="Another News Platform.."/>
                     </div>
                     <div className="col-4 d-flex justify-content-end align-items-center">
-                        <Link className="fa fa-heart text-muted" to={routes.FAVORITE_STORIES} aria-hidden="true" data-tip="Favorites" data-place="left"/>
+                        <FaIconLink faIcon="fa-heart" to={routes.FAVORITE_STORIES} dataTip="Favorites"/>
                         <UserDropdown/>
                     </div>
                 </div>
@@ -41,7 +39,7 @@ export default function Header() {
                 <StoryContainer/>
             </Route>
             <Route path={routes.FAVORITE_STORIES}>
-                <Favorites/>
+                <FavoriteStories/>
             </Route>
 
             <Suspense fallback={<div>Loading...</div>}>

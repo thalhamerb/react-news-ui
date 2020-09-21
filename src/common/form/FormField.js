@@ -1,7 +1,7 @@
 import React from 'react';
 import {ErrorMessage, Field} from "formik";
 
-function SignUpField(props) {
+export default function FormField(props) {
     return (
         <div className="form-group">
             <label htmlFor={props.fieldName}>{props.name}</label>
@@ -12,5 +12,3 @@ function SignUpField(props) {
         </div>
     );
 }
-
-export default SignUpField;

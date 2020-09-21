@@ -2,10 +2,12 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
-import SignUpField from "./SignUpField";
+import FormField from "../common/form/FormField";
 import {userState} from "../store"
 import {useSetRecoilState} from "recoil";
 import {STORIES} from "../routes"
+import FormHeader from "../common/form/FormHeader";
+import FormSubmit from "../common/form/FormSubmit";
 
 export default function Signup() {
 
@@ -51,13 +53,13 @@ export default function Signup() {
             }}
         >
             <Form className="col-6">
-                <h4 className="form-group text-center">Let's get you info...</h4>
-                <SignUpField fieldName="firstName" name="First Name" type="text" placeholder="Brendan"/>
-                <SignUpField fieldName="lastName" name="Last Name" type="text" placeholder="Smith"/>
-                <SignUpField fieldName="email" name="Email" type="email" placeholder="smithb@gmail.com"/>
-                <SignUpField fieldName="password" name="Password" type="text" placeholder="password123"/>
-                <SignUpField fieldName="age" name="Age" type="text" placeholder="34"/>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <FormHeader value="Let's get your info..."/>
+                <FormField fieldName="firstName" name="First Name" type="text" placeholder="Brendan"/>
+                <FormField fieldName="lastName" name="Last Name" type="text" placeholder="Smith"/>
+                <FormField fieldName="email" name="Email" type="email" placeholder="smithb@gmail.com"/>
+                <FormField fieldName="password" name="Password" type="text" placeholder="password123"/>
+                <FormField fieldName="age" name="Age" type="text" placeholder="34"/>
+                <FormSubmit/>
             </Form>
         </Formik>
     );
