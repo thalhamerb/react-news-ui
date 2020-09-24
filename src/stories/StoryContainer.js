@@ -25,11 +25,9 @@ export default function StoryContainer() {
             </div>
 
             <Route path={routes.STORIES + "/:section"}
-                   render={(props) => <StoryBody key={props.match.params.section}
-                                                 url={`http://newsapi.org/v2/top-headlines?country=us&category=${props.match.params.section}`}/>}/>
+                   render={(props) => <StoryBody key={props.match.params.section} section={props.match.params.section}/>}/>
             <Route path={routes.STORIES + routes.CUSTOM_SEARCH_PREFIX + "/:input"}
-                   render={(props) => <StoryBody key={props.match.params.input}
-                                                 url={`http://newsapi.org/v2/everything?q=${props.match.params.input}`}/>}/>
+                   render={(props) => <StoryBody key={props.match.params.input} input={props.match.params.input}/>}/>
         </>
     );
 }

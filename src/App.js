@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Redirect, Switch} from "react-router-dom";
 import Header from "./header/Header";
 import { useCookies } from "react-cookie";
 import * as routes from "./routes";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
     const [cookies, setCookie] = useCookies(['SameSite', 'name', 'test']);
