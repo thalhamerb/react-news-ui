@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
-import CardList from "../common/card/CardList";
+import CardList from "../../common/card/CardList";
 import StoryCard from "./StoryCard";
 import {getTopHeadlineStories, getStoriesByInputSearch} from "./StoryService";
 
@@ -32,6 +32,7 @@ export default function StoryBody(props) {
 
     useEffect(() => {
         fetchItems();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

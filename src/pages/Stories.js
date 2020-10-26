@@ -1,13 +1,13 @@
 import React from 'react';
-import StoryBody from "./StoryBody"
+import StoryBody from "../components/stories/StoryBody"
 import {Route} from "react-router-dom";
-import * as routes from "../routes";
+import * as routes from "../route.constants";
 import NavTab from "../common/nav/NavTab";
-import Search from "../common/Search";
+import SearchBar from "../common/search-bar/SearchBar";
 import NavBar from "../common/nav/NavBar";
-import {STORIES} from "../routes";
+import {STORIES} from "../route.constants";
 
-export default function StoryContainer() {
+export default function Stories() {
     return (
         <>
             <div className="row flex-nowrap justify-content-between align-items-center">
@@ -20,7 +20,7 @@ export default function StoryContainer() {
                     <NavTab to={STORIES + "/entertainment"} value="Entertainment"/>
                 </NavBar>
                 <div className="col-6 d-flex justify-content-end align-items-center">
-                    <Search linkUrl={routes.STORIES + routes.CUSTOM_SEARCH_PREFIX}/>
+                    <SearchBar linkUrl={routes.STORIES + routes.CUSTOM_SEARCH_PREFIX}/>
                 </div>
             </div>
 

@@ -21,6 +21,8 @@ export default function About() {
                 popular due to its ease of use and performance. Some of the functionality that uses Recoil probably could have been
                 solved by raising state
             </p>
+            <p>common app directory contains react elements that can become common components used across enterprise for
+                consistency</p>
         </>
     )
 

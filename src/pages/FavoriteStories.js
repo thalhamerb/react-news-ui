@@ -1,7 +1,7 @@
 import React from 'react';
 import {useRecoilState} from "recoil";
 import {favoriteStoriesState} from "../store";
-import StoryCard from "./StoryCard";
+import StoryCard from "../components/stories/StoryCard";
 import CardList from "../common/card/CardList";
 
 export default function FavoriteStories() {

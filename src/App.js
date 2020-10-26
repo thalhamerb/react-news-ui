@@ -1,12 +1,14 @@
-import React from 'react';
-import {BrowserRouter as Router, Redirect, Switch} from "react-router-dom";
-import Header from "./header/Header";
-import { useCookies } from "react-cookie";
-import * as routes from "./routes";
+import React, {Suspense} from 'react';
+import {useCookies} from "react-cookie";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/header/Header";
+import Routes from "./Routes";
+import {BrowserRouter as Router, Redirect, Switch} from "react-router-dom";
+import * as routes from "./route.constants";
+
 
 export default function App() {
-    const [cookies, setCookie] = useCookies(['SameSite', 'name', 'test']);
+    const [cookies, setCookie] = useCookies(['SameSite']);
     setCookie('SameSite', 'None', {path:'/'})
     // console.log(cookies.SameSite);
 

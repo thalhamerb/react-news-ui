@@ -1,20 +1,10 @@
 import React, {Suspense} from 'react';
-import {Route} from "react-router-dom";
-import * as routes from "../routes";
-import StoryContainer from "../stories/StoryContainer";
+import * as routes from "../../route.constants";
 import UserDropdown from "./UserDropdown";
-import FavoriteStories from "../stories/FavoriteStories";
-import HeaderLink from "../common/header/HeaderLink";
-import HeaderTitle from "../common/header/HeaderTitle";
-import FaIconLink from "../common/FaIconLink";
-
-const About = React.lazy(() => {
-    return import('./About');
-});
-
-const Signup = React.lazy(() => {
-    return import('./SignUp');
-})
+import HeaderLink from "../../common/header/HeaderLink";
+import HeaderTitle from "../../common/header/HeaderTitle";
+import FaIconLink from "../../common/fa-icon/FaIconLink";
+import Routes from "../../Routes";
 
 export default function Header() {
     return (
@@ -35,21 +25,7 @@ export default function Header() {
                 </div>
             </header>
 
-            <Route path={routes.STORIES + "/:section"}>
-                <StoryContainer/>
-            </Route>
-            <Route path={routes.FAVORITE_STORIES}>
-                <FavoriteStories/>
-            </Route>
-
-            <Suspense fallback={<div>Loading...</div>}>
-                <Route path={routes.ABOUT}>
-                    <About/>
-                </Route>
-                <Route path={routes.SIGN_UP}>
-                    <Signup/>
-                </Route>
-            </Suspense>
+            <Routes/>
         </>
     )
 }

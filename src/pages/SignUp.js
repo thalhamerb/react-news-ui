@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import FormField from "../common/form/FormField";
 import {userState} from "../store"
 import {useSetRecoilState} from "recoil";
-import {STORIES} from "../routes"
+import {STORIES} from "../route.constants"
 import FormHeader from "../common/form/FormHeader";
 import FormSubmit from "../common/form/FormSubmit";
 

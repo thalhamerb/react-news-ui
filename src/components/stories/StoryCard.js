@@ -1,8 +1,8 @@
 import React from 'react';
 import {useRecoilState} from "recoil";
-import {favoriteStoriesState} from "../store";
-import Card from "../common/card/Card";
-import FaIconButton from "../common/FaIconButton";
+import {favoriteStoriesState} from "../../store";
+import Card from "../../common/card/Card";
+import FaIconButton from "../../common/fa-icon/FaIconButton";
 
 export default function StoryCard({story}) {
 

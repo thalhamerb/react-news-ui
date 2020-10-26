@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import LinkButton from "./LinkButton";
+import LinkButton from "../button/LinkButton";
 
-export default function Search(props) {
+export default function SearchBar(props) {
 
     const [searchInput, setSearchInput] = useState("");
 

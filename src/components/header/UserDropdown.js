@@ -1,12 +1,12 @@
 import React from 'react';
 import {useRecoilState} from "recoil";
-import {userState} from "../store";
+import {userState} from "../../store";
 import {useHistory} from "react-router-dom";
-import * as routes from "../routes";
-import {STORIES} from "../routes";
-import HeaderLink from "../common/header/HeaderLink";
-import InlineDropdown from "../common/InlineDropdown";
-import InlineDropdownButton from "../common/InlineDropdownButton";
+import * as routes from "../../route.constants";
+import {STORIES} from "../../route.constants";
+import HeaderLink from "../../common/header/HeaderLink";
+import InlineDropdown from "../../common/dropdown/InlineDropdown";
+import InlineDropdownButton from "../../common/dropdown/InlineDropdownButton";
 
 export default function UserDropdown() {
 
