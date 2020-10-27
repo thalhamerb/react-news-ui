@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import * as routes from "../../route.constants";
 import UserDropdown from "./UserDropdown";
 import HeaderLink from "../../common/header/HeaderLink";
@@ -25,7 +25,21 @@ export default function Header() {
                 </div>
             </header>
 
-            <Routes/>
+            <Route path={routes.STORIES + "/:section"}>
+                <Stories/>
+            </Route>
+            <Route path={routes.FAVORITE_STORIES}>
+                <FavoriteStories/>
+            </Route>
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <Route path={routes.ABOUT}>
+                    <About/>
+                </Route>
+                <Route path={routes.SIGN_UP}>
+                    <Signup/>
+                </Route>
+            </Suspense>
         </>
     )
 }
