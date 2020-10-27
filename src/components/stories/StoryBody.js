@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardList from "../../common/card/CardList";
 import StoryCard from "./StoryCard";
-import {getTopHeadlineStories, getStoriesByInputSearch} from "./StoryService";
+import {getTopHeadlineStories, getStoriesByInputSearch} from "./story.service";
 
 export default function StoryBody(props) {
 

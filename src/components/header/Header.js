@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import * as routes from "../../route.constants";
 import UserDropdown from "./UserDropdown";
 import HeaderLink from "../../common/header/HeaderLink";

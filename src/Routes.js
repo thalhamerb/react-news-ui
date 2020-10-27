@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {Route} from "react-router-dom";
 import * as routes from "./route.constants";
 import Stories from "./pages/Stories";
 import FavoriteStories from "./pages/FavoriteStories";
