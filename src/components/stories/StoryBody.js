@@ -37,12 +37,9 @@ export default function StoryBody(props) {
 
     return (
         <div className="mt-2">
-            {cardArray.length === 0 && hasMore === false ?
-                "Unable to load stories..."
-                :
-                <InfiniteScroll dataLength={cardArray.length} next={fetchItems} hasMore={hasMore} loader={"loading..."}>
-                    <CardList cardArray={cardArray}/>
-                </InfiniteScroll>}
+            <InfiniteScroll dataLength={cardArray.length} next={fetchItems} hasMore={hasMore} loader={"loading..."}>
+                <CardList cardArray={cardArray}/>
+            </InfiniteScroll>
         </div>
     );
 }
