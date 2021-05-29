@@ -10,11 +10,11 @@ Built application to learn React.
 
 ### `Features`
 
-Search for stories by category
+#### `Search for stories by category`
 ![Alt text](./read_me_images/category.PNG?raw=true)
 
-Search for stories by query
+#### `Search for stories by query`
 ![Alt text](./read_me_images/search.PNG?raw=true)
 
-Sign up form using Formik library with error handling
+#### `Sign up form using Formik library with error handling`
 ![Alt text](./read_me_images/signup.PNG?raw=true )
