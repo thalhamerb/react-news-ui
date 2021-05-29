@@ -4,7 +4,11 @@ import UserDropdown from "./UserDropdown";
 import HeaderLink from "../../common/header/HeaderLink";
 import HeaderTitle from "../../common/header/HeaderTitle";
 import FaIconLink from "../../common/fa-icon/FaIconLink";
-import Routes from "../../Routes";
+import { Route } from 'react-router';
+import Stories from '../../pages/Stories';
+import FavoriteStories from '../../pages/FavoriteStories';
+import SignUp from '../../pages/SignUp';
+import About from '../../pages/About';
 
 export default function Header() {
     return (
@@ -37,7 +41,7 @@ export default function Header() {
                     <About/>
                 </Route>
                 <Route path={routes.SIGN_UP}>
-                    <Signup/>
+                    <SignUp/>
                 </Route>
             </Suspense>
         </>
