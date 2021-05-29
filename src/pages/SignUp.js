@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import FormField from "../common/form/FormField";
 import {userState} from "../store"
 import {useSetRecoilState} from "recoil";
-import {STORIES} from "../route.constants"
+import {HOME} from "../route.constants"
 import FormHeader from "../common/form/FormHeader";
 import FormSubmit from "../common/form/FormSubmit";
 
@@ -15,7 +15,7 @@ export default function Signup() {
     const history = useHistory();
 
     const routeChange = () => {
-        history.push(STORIES);
+        history.push(HOME);
     }
 
     return (

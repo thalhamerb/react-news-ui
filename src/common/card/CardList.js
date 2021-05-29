@@ -11,8 +11,8 @@ export default function CardList({cardArray}) {
     }
 
     return (
-        chunkData(cardArray).map((cardRows) =>
-            <div className="row mb-2">
+        chunkData(cardArray).map((cardRows, i) =>
+            <div key={i} className="row mb-2">
                 {cardRows}
             </div>
         )
